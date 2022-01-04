@@ -3,7 +3,7 @@ import React from 'react'
 export default function Footer(props) {
     return (
         <div className={`bg-${props.mode}`} style={{ color: props.mode === "dark" ? "white" : "black"}} id = "footer">
-            <footer className="d-flex flex-wrap justify-content-between align-items-center py-3 mx-5 footer">
+            <footer className="d-flex flex-wrap justify-content-around align-items-center py-3 mx-5 footer">
                 <div className="col-md-4 d-flex align-items-center">
                 <span className="text-muted"><h5>&copy; Vinay Araveti</h5></span>
                 </div>
