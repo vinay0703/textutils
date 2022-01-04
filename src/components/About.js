@@ -1,33 +1,6 @@
 import React from 'react'
-// import React, { useState } from 'react'
 
 export default function About(props) {
-    // let darkMode={
-    //     color: 'white',
-    //     backgroundColor: '#212529',
-    //     border: '1px solid white'
-    // };
-    // let lightMode={
-    //     color: 'black',
-    //     backgroundColor: 'white'
-    // };
-    // let defaultBtnText = 'Enable Dark Mode';
-
-    // const [myStyle, setMyStyle] = useState(lightMode);
-    // const [btnText, setBtnText] = useState(defaultBtnText);
-
-    // //function to change theme
-    // const toggleStyle = ()=>{
-    //     if(myStyle.color === 'black'){
-    //         setMyStyle(darkMode);
-    //         setBtnText('Enable Light Mode');
-    //     }
-    //     else{
-    //         setMyStyle(lightMode);
-    //         setBtnText('Enable Dark Mode');
-    //     }
-    // };   
-
     let accordionBtnStyle = {
         backgroundColor: props.mode === 'dark'?'#212529':'white',
         color: props.mode === 'dark'?'white':'black',

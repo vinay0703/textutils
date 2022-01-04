@@ -55,10 +55,6 @@ export default function TextForm(props) {
       newText = newText.split("?");
       newText = newText.join("? ");
 
-      //Adding space after \n
-      newText = newText.split(/\s+/);
-      newText = newText.join(" ");
-
       //Formatting the actual text
       setText(newText);
       props.showAlert("Beautified text", "success");
@@ -70,6 +66,27 @@ export default function TextForm(props) {
   const handleOnchange = (event) => {
     setText(event.target.value);
   };
+
+  const timeRead = ()=>{
+    //Average time to read one word is 0.0033 minutes.
+    let tR = 0.0033 * 60 * (text.length ? text.trim().split(/\s+/).length : 0);
+    //Setting precision to 4 numbers after decimal point.
+    if(tR >= 3600){
+      tR = tR / 3600;
+      tR = tR.toFixed(4);
+      return (String(tR) + " Hours read.");
+    }
+    else if(tR >= 60){
+      tR = tR / 60;
+      tR = tR.toFixed(4);
+      return (String(tR) + " Minutes read.");
+    }
+    else{
+      tR = tR.toFixed(4);
+      return (String(tR) + " Seconds read.");
+    }
+  }
+
   return (
     <>
       <div
@@ -138,13 +155,12 @@ export default function TextForm(props) {
           {text.length} characters
         </p>
         <p>
-          {0.08 * (text.length ? text.trim().split(/\s+/).length : 0)} Minutes
-          read
+          {timeRead()}
         </p>
         <br />
         <h2>Preview</h2>
         <hr />
-        <p>{text.length === 0 ? "Nothing to preview :(" : text}</p>
+        <pre>{text.length === 0 ? "Nothing to preview :(" : text}</pre>
       </div>
     </>
   );
